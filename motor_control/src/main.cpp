@@ -50,6 +50,7 @@ void move_bot(double ax, double ay, int w){
   motor_control(M2A, M2B, f2);
   motor_control(M3A, M3B, f3);
 }
+
 void loop()
 {
     //move in a  forward circle 
