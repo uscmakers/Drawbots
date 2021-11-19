@@ -1,5 +1,7 @@
 #include <Arduino.h>
 #include <softwareserial.h> // remove the inverted commas after you copy the code to the IDE
+#include "motor_control.h"
+#include <string> 
 
 SoftwareSerial BT(10, 11); 
 // creates a "virtual" serial port/UART
@@ -9,6 +11,7 @@ SoftwareSerial BT(10, 11);
 String value= "";
 void setup(){
   Serial.begin(9600);
+  motor_init();
 }
 
 void loop(){
@@ -21,6 +24,7 @@ void loop(){
     String strength = value.substring(3,6);
     String button = value.substring(6,8);
     Serial.print("angle;");
+    move_bot(0,double(strength), double(angle));
     Serial.print(angle);
     Serial.print('\t');
     Serial.print("strength;");
