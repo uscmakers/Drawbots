@@ -20,18 +20,21 @@ void loop(){
     value = Serial.readStringUntil('#');
   }
   if(value.length() == 7){
-    String angle = value.substring(0,3);
-    String strength = value.substring(3,6);
-    String button = value.substring(6,8);
+    String angle1 = value.substring(0,3);
+    String strength1 = value.substring(3,6);
+    String button1 = value.substring(6,8);
+    double angle2 = stod(angle1);
+    double strength2 = stod(strength1);
+    double button2 = stod(button1);
     Serial.print("angle;");
-    move_bot(0,double(strength), double(angle));
-    Serial.print(angle);
+    move_bot(0,double(strength2), double(angle2));
+    Serial.print(angle2);
     Serial.print('\t');
     Serial.print("strength;");
-    Serial.print(strength);
+    Serial.print(strength2);
     Serial.print('\t');
     Serial.print("button;");
-    Serial.print(button);
+    Serial.print(button2);
     Serial.println("");
     Serial.flush();
     value = "";
